@@ -1,0 +1,15 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <%=  @topics.each do |topic| %>
+        <div class="form-group">
+          <%= image_tag topic.images.url %>
+          <%= topic.description %>
+          <%= topic.created_at %>
+          <%= topic.name %>
+          <%= topic.parts %>
+        </div>
+      <% end %>  
+    </div>   
+  </div>     
+</div>      

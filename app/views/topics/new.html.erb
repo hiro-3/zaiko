@@ -1,19 +1,20 @@
-<div class="topic-new-wrapper" >
+description<div class="topic-new-wrapper" >
   <div class="container">
     <div class="row">
       <%= form_for @topics do |f| %>
         <div class="form-group">
-          <%= f.label :image %>
-          <%= f.file_field :image%>
-          <%= f.label :description %>
+          <%= f.label "画像" %>
+          <%= f.file_field :images%>
+          <%= f.label "状況説明" %>
           <%= f.text_field :description %>
-          <%= f.label :created_at %>
-          <%= f.date_field :created_at %>
-          <%= f.label :parts %>
-          <%= f.text_field :parts %>
+          <%= f.label "発生日" %>
+          <%= f.datetime_field :created_at %>
           <%= f.label "型名" %>
           <%= f.text_field :name %>
+          <%= f.label "工程" %>
+          <%= f.text_field :parts %>
         </div>
+        <%= f.submit '投稿' %>
       <% end %>  
     </div>   
   </div>     
