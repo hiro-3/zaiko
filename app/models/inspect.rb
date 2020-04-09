@@ -1,0 +1,2 @@
+class Inspect < ApplicationRecord
+end

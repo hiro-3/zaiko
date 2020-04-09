@@ -10,14 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_144001) do
+ActiveRecord::Schema.define(version: 2020_04_09_010451) do
+
+  create_table "inspects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "car_name"
+    t.string "name"
+    t.string "process"
+    t.string "worker"
+    t.string "parts"
+    t.string "images"
+    t.string "subject"
+    t.string "shop_name"
+    t.string "man_hours"
+    t.integer "check1"
+    t.text "description"
+    t.datetime "accrual_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
+    t.string "car_name"
     t.string "name"
-    t.string "images"
-    t.string "description"
+    t.string "process"
+    t.string "worker"
     t.string "parts"
+    t.string "images"
+    t.string "subject"
+    t.string "shop_name"
+    t.string "man_hours"
+    t.text "description"
+    t.datetime "accrual_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,8 +50,10 @@ ActiveRecord::Schema.define(version: 2020_04_03_144001) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

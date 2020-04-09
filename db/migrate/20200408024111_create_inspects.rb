@@ -1,6 +1,6 @@
-class CreateTopics < ActiveRecord::Migration[5.2]
+class CreateInspects < ActiveRecord::Migration[5.2]
   def change
-    create_table :topics do |t|
+    create_table :inspects do |t|
       t.integer :user_id
       t.string :car_name
       t.string :name
@@ -11,9 +11,10 @@ class CreateTopics < ActiveRecord::Migration[5.2]
       t.string :subject
       t.string :shop_name
       t.string :man_hours
+      t.integer :check1
       t.text :description
       t.datetime :accrual_date
-      
+
       t.timestamps
     end
   end

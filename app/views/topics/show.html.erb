@@ -1,15 +1,41 @@
-<div class="topic-new-wrapper" >
+<div class="new-wrapper" >
   <div class="container">
-    <div class="row">
-      <%=  @topics.each do |topic| %>
-        <div class="form-group">
-          <%= image_tag topic.images.url %>
-          <%= topic.description %>
-          <%= topic.created_at %>
-          <%= topic.name %>
-          <%= topic.parts %>
-        </div>
-      <% end %>  
+   　  <div class="row">
+        <table class="table table-bordered">
+         <thead>
+           <tr>
+            <th></th>
+            <th>発生日時</th>
+            <th>車種</th>
+            <th>部品名</th>
+            <th>工程</th>
+            <th>件名</th>
+            <th>班名</th>
+            <th>作業者</th>
+     　　</thead>
+     　　 <% @topics.each do|t| %>
+     　   <tbody>
+       　   <tr>
+       　    <td><%= t.id %></td>
+        　   <td><%= t.accrual_date %></td>
+        　   <td><%= t.car_name %></td>
+        　   <td><%= t.name %></td>
+        　   <td><%= t.process %></td>
+        　   <td><%= t.subject %></td>
+        　   <td><%= t.shop_name %></td>
+        　   <td><%= t.worker %></td>
+        　  </tr>
+         </tbody>
+      </div>   
+       　  <div class="col-md-8">  
+           <%= image_tag t.images.url %>
+          </div> 
+          <div class="row">
+           <div class="col-md-12" >
+            <%= t. description %>
+           </div>  
+          </div> 
+        <% end %>  
     </div>   
   </div>     
 </div>      

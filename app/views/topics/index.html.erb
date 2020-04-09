@@ -1,30 +1,37 @@
-<section class="container">
-   <h1 class= "text-name">報告書一覧</h1>
-    <hr/>
-     <table class="table table-striped">
-      <thead>
-        <tr>
-         <th></th>
-         <th>車種</th>
-         <th>部品名</th>
-         <th>工程</th>
-         <th>破損内容</th>
-         <th>発生日時</th>
-         <th></th>
-         <th></th>
-  　　</thead>  
-  　  <tbody>
-  　   <%= @topics.each do|t| %>
-    　   <tr>
-    　    <td><%= t.id %></td>
-     　   <td><%= t.name %></td>
-     　   <td><%= t.name %></td>
-     　   <td><%= t.parts %></td>
-     　   <td><%= t.description %></td>
-     　   <td><%= t.created_at %></td>
-     　 　 <td><%= link_to "詳細", "#" %>
-     　   <td><%= link_to "削除", "#" %>
-     　  </tr>
-  　   <% end %> 
-  　  </tbody>　
-</section>
+<div class="new-wrapper">
+ <section class="container">
+    <h1 class= "text-name">報告書一覧</h1>
+     <hr/>
+      <table class="table table-bordered">
+       <%= pie_chart Topic.group(:car_name).count %>
+       <thead>
+         <tr>
+          <th></th>
+          <th>発生日時</th>
+          <th>車種</th>
+          <th>部品名</th>
+          <th>工程</th>
+          <th>件名</th>
+          <th>班名</th>
+          <th>作業者</th>
+          <th></th>
+          <th></th>
+   　　</thead>  
+   　  <tbody>
+   　   <% @topics.each do|t| %>
+     　   <tr>
+     　    <td><%= t.id %></td>
+      　   <td><%= t.accrual_date %></td>
+      　   <td><%= t.car_name %></td>
+      　   <td><%= t.name %></td>
+      　   <td><%= t.process %></td>
+      　   <td><%= t.subject %></td>
+      　   <td><%= t.shop_name %></td>
+      　   <td><%= t.worker %></td>
+      　 　 <td><%= link_to "詳細", topic_path(id: t.id) %></td>　
+      　   <td><%= link_to "削除", topics_destroy_path(id: t.id), method: :delete %></td>
+      　  </tr>
+   　   <% end %> 
+   　  </tbody>　
+ </section>
+</div>

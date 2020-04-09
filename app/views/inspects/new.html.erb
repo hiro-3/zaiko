@@ -1,0 +1,65 @@
+<div class="new-wrapper">
+  <div class="container">
+    <div class="row">
+      <%= form_for @inspects do |i| %>
+        <div class="container">
+       　<h1 class= "text-name">点検シート</h>
+    　　　　<div class="form-group">
+            <%= i.label "点検日" %>
+            <%= i.datetime_field :accrual_date %>
+            <%= i.label "車種" %>
+            <%= i.text_field :car_name %>
+            <%= i.label "部品名" %>
+          　<%= i.text_field :name %> 
+          　<%= i.label "工程" %>
+          　<%= i.text_field :process %> 
+          　<%= i.label "班名" %>
+          　<%= i.text_field :shop_name %> 
+          　<%= i.label "作業者" %>
+          　<%= i.text_field :worker %> 
+          </div>
+       </div>
+       <if 
+       <div class="inspects-table-warp">
+        <table class="table table-bordered">
+          <thead>
+            <th></th>
+            <th>点検項目</th>
+            <th>判定</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>~~~~~~</td>
+              <td><%= check_box_tag :check %></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>~~~~~~</td>
+              <td><%= check_box_tag :check %></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>~~~~~~</td>
+              <td><%= check_box_tag :check %></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>~~~~~~</td>
+              <td><%= check_box_tag :check %></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>~~~~~~</td>
+              <td><%= check_box_tag :check %></td>
+            </tr>
+          </tbody>  
+        </table>
+        <%= i.label "備考" %><br>
+        <%= i.text_area :description %>
+        <%= i.submit '投稿' %>
+      <% end %> 
+      </div>
+    </div>  
+  </div>    
+</div>      
