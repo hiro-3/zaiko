@@ -7,6 +7,7 @@
        <thead>
          <tr>
           <th></th>
+          <th>ID番号</th>
           <th>発生日時</th>
           <th>車種</th>
           <th>部品名</th>
@@ -18,8 +19,9 @@
           <th></th>
    　　</thead>  
    　  <tbody>
-   　   <% @topics.each do|t| %>
-     　   <tr>
+       <% @topics.each.with_index(1) do |t, idx| %> 
+         <tr>
+          <td><%= idx %></td>
      　    <td><%= t.id %></td>
       　   <td><%= t.accrual_date %></td>
       　   <td><%= t.car_name %></td>

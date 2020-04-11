@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
   end 
   
   def create
-    #binding.pry
+    binding.pry
     @topics = Topic.new(topic_params)
     if @topics.save
       redirect_to topics_path, success: '投稿しました'

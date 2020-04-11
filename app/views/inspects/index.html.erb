@@ -7,6 +7,7 @@
        <thead>
          <tr>
           <th></th>
+          <th>ID番号</th>
           <th>点検日</th>
           <th>車種</th>
           <th>部品名</th>
@@ -17,8 +18,9 @@
           <th></th>
    　　</thead>  
    　  <tbody>
-       <% @inspects.each do |i| %>
+       <% @inspects.each.with_index(1) do |i, idx| %>
         <tr>
+          <td><%= idx %></td>
           <td><%= i.id %></td>
           <td><%= i.accrual_date %></td>
           <td><%= i.car_name %></td>
@@ -26,7 +28,7 @@
           <td><%= i.process %></td>
           <td><%= i.shop_name %></td>
           <td><%= i.worker %></td>
-          <td><%= link_to "詳細", "#" %></td>　
+          <td><%= link_to "詳細", inspect_path(id: i.id) %></td>　
           <td><%= link_to "削除",  inspects_destroy_path(id: i.id), method: :delete %></td>
         </tr>
    　   <% end %> 
