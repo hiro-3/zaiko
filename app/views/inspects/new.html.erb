@@ -1,64 +1,96 @@
 <div class="new-wrapper">
   <div class="container">
-      <div class="row">
-         <%= form_for @inspects do |i| %>
-      　　　　<div class="form-group">
-              <%= i.label "点検日" %>
-              <%= i.datetime_field :accrual_date %>
+        <%= form_for @inspects do |i| %>
+          <div class="col-md-offset-2 col-md-8 inspects-new-container">
+            <div class="row">
+              <%= i.label "画像" %>
+              <%= i.file_field :images, class:"col" %><br>
+              <%= i.label "発生日" %>
+              <%= i.datetime_field :accrual_date, class:"col" %><br>
               <%= i.label "車種" %>
               <%= i.text_field :car_name %>
               <%= i.label "部品名" %>
-            　<%= i.text_field :name %> 
-            　<%= i.label "工程" %>
-            　<%= i.text_field :process %> 
-            　<%= i.label "班名" %>
-            　<%= i.text_field :shop_name %> 
-            　<%= i.label "作業者" %>
-            　<%= i.text_field :worker %> 
-            　<%= i.label "工数" %>
-            　<%= i.text_field :man_hours %> 
-            　<%= i.label "画像" %>
-            　<%= i.file_field :images %> 
+              <%= i.text_field :name, class:"col" %>
+              <%= i.label "工程" %>
+              <%= i.text_field :process, class:"col" %><br>
+              <%= i.label "班名" %>
+              <%= i.text_field :shop_name, class:"col"  %>
+              <%= i.label "作業者" %>
+              <%= i.text_field :worker, class:"col" %>
+              <%= i.label "工数" %>
+              <%= i.number_field :man_hours,class:"col" %><br>
             　<%= i.label "交換部品" %>
-            　<%= i.text_field :parts %> 
+            　<%= i.text_area :parts, class: "form-control" %> 
             </div>
-           <div class="inspects-table-warp">
-            <table class="table table-bordered">
-             <thead>
-              <th></th>
-              <th>点検項目</th>
-              <th>判定</th>
-  　　　     　　 </thead>
-             <% if Choice.all.last.check == 1 %> 
-  　　　      　　 <tbody>
-                <tr>
-                 <td>1</td>
-                 <td>ドロー型</td>
-                 <td><%= check_box_tag :check1 %></td>
-                </tr>
-               </tbody>
-            <% elsif Choice.all.last.check == 2 %>
-             <tbody>
-              <tr>
-                <td>1</td>
-                <td>トリム型</td>
-                <td><%= check_box_tag :check1 %></td>
-              </tr>
-              </tbody>
-            <% else Choice.all.last.check == 3 %>
-             <tbody>
-              <tr>
-                <td>1</td>
-                <td>BLK</td>
-                <td><%= check_box_tag :check1 %></td>
-              </tr>
-             </tbody>
-            <% end %>
-           </table>
-           <%= i.label "備考" %><br>
-           <%= i.text_area :description %>
-           <%= i.submit '投稿' %>
-         <% end %>  
-      </div>
+           </div>
+           <div class="row">
+            <h4>ドロー型用</h4>
+             <div class="inspects-table-warp">
+              <div class="col-md-6 inspects-new-container">
+               <table class="table table-bordered">
+                <thead>
+                 <th></th>
+                 <th>点検項目</th>
+                 <th>判定</th>
+     　　　     　　 </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>ここに検査項目入る</td>
+                  <td>
+                   <label><%= i.radio_button :check1, "OK" %> OK</label>
+                   <label><%= i.radio_button :check1, "NG"%> NG </label>
+                   <label><%= i.radio_button :check1, "該当なし" %> 該当なし</label>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
+                  <td>
+                   <label><%= i.radio_button :check2, "OK" %> OK</label>
+                   <label><%= i.radio_button :check2, "NG" %> NG </label>
+                   <label><%= i.radio_button :check2, "該当なし" %> 該当なし</label>
+                  </td>
+                 </tr>
+                </tbody>
+               </table> 
+              </div>
+              <div class="col-md-6 inspects-new-container">
+                <table class="table table-bordered">
+                  <thead>
+                   <th></th>
+                   <th>点検項目</th>
+                   <th>判定</th>
+       　　　     　　 </thead>
+                 <tbody>
+                  <tr>
+                   <td>3</td>
+                   <td>ここに検査項目入る</td>
+                   <td>
+                    <label><%= i.radio_button :check3, "OK" %> OK</label>
+                    <label><%= i.radio_button :check3, "NG"%> NG </label>
+                    <label><%= i.radio_button :check3, "該当なし" %> 該当なし</label>
+                   </td>
+                  </tr>
+                  <tr>
+                   <td>4</td>
+                   <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
+                   <td>
+                    <label><%= i.radio_button :check4, "OK" %> OK</label>
+                    <label><%= i.radio_button :check4, "NG" %> NG </label>
+                    <label><%= i.radio_button :check4, "該当なし" %> 該当なし</label>
+                   </td>
+                  </tr>
+                 </tbody> 
+                </table>
+              </div> 
+             </div>
+             <div class='col-md-offset-2 col-md-8 '>
+              <%= i.label "備考" %>
+              <%= i.text_area :description, class: "form-control" %>
+              <%= i.submit '投稿' %>
+             </div>
+          </div>   
+        <% end %>  
   </div>    
 </div>      

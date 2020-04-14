@@ -1,41 +1,67 @@
 <div class="new-wrapper" >
   <div class="container">
-   　  <div class="row">
-        <table class="table table-bordered">
-         <thead>
-           <tr>
-            <th></th>
-            <th>発生日時</th>
-            <th>車種</th>
-            <th>部品名</th>
-            <th>工程</th>
-            <th>件名</th>
-            <th>班名</th>
-            <th>作業者</th>
-     　　</thead>
-     　　 <% @topics.each do|t| %>
-     　   <tbody>
-       　   <tr>
-       　    <td><%= t.id %></td>
-        　   <td><%= t.accrual_date %></td>
-        　   <td><%= t.car_name %></td>
-        　   <td><%= t.name %></td>
-        　   <td><%= t.process %></td>
-        　   <td><%= t.subject %></td>
-        　   <td><%= t.shop_name %></td>
-        　   <td><%= t.worker %></td>
-        　  </tr>
-         </tbody>
-      </div>   
-       　  <div class="col-md-8">  
-           <%= image_tag t.images.url %>
+　　<% @topics.each do|t| %>
+   　 　 <div class="row">
+        <div class="col-md-10">       
+         <table class="table table-bordered">
+         　 <thead>
+            <tr>
+             <th>ID番号</th>
+             <th>発生日時</th>
+             <th>車種</th>
+             <th>部品名</th>
+             <th>工程</th>
+             <th>件名</th>
+             <th>班名</th>
+             <th>作業者</th>
+             <th>作成者</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+        　    <td><%= t.id %></td>
+         　   <td><%= t.accrual_date %></td>
+         　   <td><%= t.car_name %></td>
+         　   <td><%= t.name %></td>
+         　   <td><%= t.process %></td>
+         　   <td><%= t.subject %></td>
+         　   <td><%= t.shop_name %></td>
+         　   <td><%= t.worker %></td>
+             <td><%= t.user.user_name %></td>
+        　 　 </tr>
+         　</tbody>
+       </div>  　
+         　<div class="col-md-offset-4 col-md-4">
+            <table class="table table-bordered">
+             <tr>
+              <th>交換部品</th>
+             </tr>
+             <tr>
+               <td class="topic_descrption"><%= t.parts %></td>
+             </tr>　
+          　</table>   
+           </div>　 
+        </div>  
+        <div class="row">
+         <div class="col-md-offset-1 col-md-10">
+          <table class="table table-bordered">
+            <tr>
+             <th>画像</th>
+             <th>状況説明</th>
+            </tr>
+            <tr>
+             <div class="img">
+              <td width="150" align="center"><%= image_tag t.images.url, class:"topic_img" %></td>
+             </div>
+             <td class="topic_descrption"><%= t. description %></td>
+            </tr>
+          </table>
+        </div>
+        　<%# if t.images.present? %>  
+        　<%# end %>
+           </div>
           </div> 
-          <div class="row">
-           <div class="col-md-12" >
-            <%= t. description %>
-           </div>  
-          </div> 
-        <% end %>  
-    </div>   
+        </div>
+   <% end %>  
   </div>     
 </div>      

@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(version: 2020_04_10_072935) do
     t.string "subject"
     t.string "shop_name"
     t.string "man_hours"
-    t.integer "check1"
+    t.string "check1"
+    t.string "check2"
+    t.string "check3"
+    t.string "check4"
     t.text "description"
     t.datetime "accrual_date"
     t.datetime "created_at", null: false
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_072935) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "user_name"
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false

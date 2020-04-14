@@ -1,54 +1,61 @@
 <div class="new-wrapper" >
   <div class="container">
-   　  <div class="row">
-        <table class="table table-bordered">
-         <thead>
-           <tr>
-            <th></th>    
-            <th>点検日</th>
-            <th>車種</th>
-            <th>部品名</th>
-            <th>工程</th>
-            <th>班名</th>
-            <th>作業者</th>
-            <th>工数</th>
-     　 　</thead>
-        <% @inspects.each do|t| %>
-         <tr>
-       　   <tbody>
-         　   <tr>
-         　    <td><%= t.id %></td>
-          　   <td><%= t.accrual_date %></td>
-          　   <td><%= t.car_name %></td>
-          　   <td><%= t.name %></td>
-          　   <td><%= t.process %></td>
-          　   <td><%= t.shop_name %></td>
-          　   <td><%= t.worker %></td>
-          　   <td><%= t.man_hours %></td> 
-          　  </tr>
-           </tbody>
-       　  <div class="col-md-8">
-           <%= image_tag t.images.url %>
-           <%= t.parts %>
-          </div> 
-          <div class="row">
-           <div class="col-md-12" >
-            <%= t. description %>
-             <thead>
-              <th></th>
-              <th>点検項目</th>
-              <th>判定</th>
-             </thead>
-             <tbody>
-               <tr>
-                <td>1</td>
-                <td>ドロー型</td>
-                <td><%= t.check1 %></td>
-               </tr>
-            </tbody>
-           </div>  
-          </div> 
-        <% end %>  
-    </div>   
-  </div>     
+   <% @inspects.each do|i| %>
+   　 <div class="row">
+       <%= "点検日" %>
+       <%= i.accrual_date %>
+       <%= "車種" %>
+       <%= i.car_name %>
+       <%=  "部品名" %>
+       <%= i.name %>
+       <%=  "工程" %>
+       <%= i.process %>
+       <%=  "班名" %>
+       <%= i.shop_name %>
+       <%=  "作業者" %>
+       <%= i.worker %>
+       <%=  "工数" %>
+       <%= i.man_hours %>
+      <% if i.images.present? %>
+   　   <div class="col-md-8">
+        <%= image_tag i.images.url %>
+        <%= i.parts %>
+       </div>
+      <% end %>
+      <div class="col-md-12" >
+       <%= i. description %>
+      </div> 
+     </div>
+        <div class="row">
+          <table class="table table-bordered"> 
+           <thead>
+            <th></th>
+            <th>点検項目</th>
+            <th>判定</th>
+           </thead>
+           <tbody>
+             <tr>
+              <td>1</td>
+              <td>トリム型test</td>
+              <td><%= i.check1 %></td>
+             </tr>
+             <tr>
+              <td>2</td>
+              <td>トリム型test</td>
+              <td><%= i.check2 %></td>
+             </tr>
+             <tr>
+              <td>3</td>
+              <td>トリム型test</td>
+              <td><%= i.check3 %></td>
+             </tr>
+             <tr>
+              <td>4</td>
+              <td>トリム型test</td>
+              <td><%= i.check4 %></td>
+             </tr>
+          </tbody>
+        </div> 
+  <% end %>  
+ </div>     
 </div>      

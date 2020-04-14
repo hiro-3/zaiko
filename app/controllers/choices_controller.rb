@@ -8,7 +8,7 @@ class ChoicesController < ApplicationController
    #binding.pry
    @choices = Choice.new(choice_params)
     if @choices.save
-      redirect_to new_inspect_path, success: '投稿しました'
+      redirect_to new_inspect_path
     else
       render :new
     end
@@ -16,6 +16,6 @@ class ChoicesController < ApplicationController
   
   private
    def choice_params
-    params.require(:choice).permit( :check )  
+    params.require(:choice).permit( :id, :check )  
    end     
 end

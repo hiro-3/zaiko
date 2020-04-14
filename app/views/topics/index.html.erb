@@ -14,7 +14,7 @@
           <th>工程</th>
           <th>件名</th>
           <th>班名</th>
-          <th>作業者</th>
+          <th>作成者</th>
           <th></th>
           <th></th>
    　　</thead>  
@@ -29,7 +29,7 @@
       　   <td><%= t.process %></td>
       　   <td><%= t.subject %></td>
       　   <td><%= t.shop_name %></td>
-      　   <td><%= t.worker %></td>
+　　　　　<td><%= t.user.user_name %></td>      　   
       　 　 <td><%= link_to "詳細", topic_path(id: t.id) %></td>　
       　   <td><%= link_to "削除", topics_destroy_path(id: t.id), method: :delete %></td>
       　  </tr>

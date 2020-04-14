@@ -11,7 +11,10 @@ class CreateInspects < ActiveRecord::Migration[5.2]
       t.string :subject
       t.string :shop_name
       t.string :man_hours
-      t.integer :check1
+      t.string :check1
+      t.string :check2
+      t.string :check3
+      t.string :check4
       t.text :description
       t.datetime :accrual_date
 

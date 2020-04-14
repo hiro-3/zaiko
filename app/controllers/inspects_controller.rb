@@ -1,7 +1,15 @@
 class InspectsController < ApplicationController
+  before_action :inspect_new, only: [:new, :new1, :new2]
+  
   def new
-    @inspects = Inspect.new
   end
+  
+  def new1
+  end
+  
+  def new2
+  end
+  
   
   def show
     #binding.pry
@@ -14,9 +22,9 @@ class InspectsController < ApplicationController
   
   def create
    #binding.pry
-    @inspects = Inspect.new(inspect_params)
+    @inspects = current_user.inspects.new(inspect_params)
    if @inspects.save
-     redirect_to inspects_path success: '投稿しました'
+     redirect_to inspects_path 
    else
      render :new
    end 
@@ -31,6 +39,14 @@ class InspectsController < ApplicationController
   
   private
    def inspect_params
-     params.require(:inspect).permit(:user_id, :car_name, :name, :process, :worker, :parts, :images, :man_hours, :shop_name, :description, :accrual_date, :check1 )
+     params.require(:inspect).permit(
+       :user_id, :car_name, :name, :process, :worker,
+       :parts, :images, :man_hours, :shop_name, :description, :accrual_date,
+       :check1, :check2, :check3, :check4,
+     )
    end
+   
+   def inspect_new
+     @inspects = Inspect.new
+   end   
 end
