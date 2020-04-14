@@ -25,7 +25,9 @@
               <li><%= link_to "金型点検一覧", inspects_path  %></li>
               <li><%= link_to "イベント議事録", "#"  %></li>
               <li><%= link_to "一般金型メンテナンス", "#" %></li>
-              <li><%= link_to "会員登録", new_user_path   %></li>
+              <% if current_user.admin? %>  
+                <li><%= link_to "会員登録", new_user_path   %></li>
+              <% end %>  
               <li><%= link_to"ログアウト", logout_path, method: :delete  %></li>
             </ul> 
           <% end %>  
