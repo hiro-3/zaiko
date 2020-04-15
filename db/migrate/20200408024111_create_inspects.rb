@@ -15,6 +15,10 @@ class CreateInspects < ActiveRecord::Migration[5.2]
       t.string :check2
       t.string :check3
       t.string :check4
+      t.string :mold_type
+      t.string :mold_type1
+      t.string :mold_type2
+      
       t.text :description
       t.datetime :accrual_date
 

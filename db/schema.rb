@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_04_14_123201) do
 
   create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "check"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +34,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_123201) do
     t.string "check2"
     t.string "check3"
     t.string "check4"
+    t.string "mold_type"
+    t.string "mold_type1"
+    t.string "mold_type2"
     t.text "description"
     t.datetime "accrual_date"
     t.datetime "created_at", null: false

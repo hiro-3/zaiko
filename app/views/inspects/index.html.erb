@@ -13,12 +13,15 @@
           <th>部品名</th>
           <th>工程</th>
           <th>班名</th>
-          <th>作業者</th>
+          <th>作成者</th>
           <th></th>
           <th></th>
    　　</thead>  
    　  <tbody>
        <% @inspects.each.with_index(1) do |i, idx| %>
+        <% i.mold_type %>
+        <% i.mold_type1 %>
+        <% i.mold_type2 %>
         <tr>
           <td><%= idx %></td>
           <td><%= i.id %></td>
@@ -27,8 +30,14 @@
           <td><%= i.name %></td>
           <td><%= i.process %></td>
           <td><%= i.shop_name %></td>
-          <td><%= i.worker %></td>
-          <td><%= link_to "詳細", inspect_path(id: i.id) %></td>　
+          <td><%= i.user.user_name %></td>
+          <% if i.mold_type.present? %>
+            <td><%= link_to "詳細", inspect_path(id: i.id) %></td>
+          <% elsif i.mold_type1.present? %>  
+            <td><%= link_to "詳細", show1_path(id: i.id) %></td>
+          <% else %>  
+            <td><%= link_to "詳細", show2_path(id: i.id) %></td>
+          <% end %> 
           <td><%= link_to "削除",  inspects_destroy_path(id: i.id), method: :delete %></td>
         </tr>
    　   <% end %> 

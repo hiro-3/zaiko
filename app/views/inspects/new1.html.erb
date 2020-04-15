@@ -26,55 +26,72 @@
            <div class="row">
             <h4>トリム型用</h4>
              <div class="inspects-table-warp">
-              <table class="table table-bordered">
-               <thead>
-                <th></th>
-                <th>点検項目</th>
-                <th>判定</th>
-    　　　     　　 </thead>
-               <tbody>
-                <tr>
-                 <td>1</td>
-                 <td>ここに検査項目入る</td>
-                 <td>
-                  <label><%= i.radio_button :check1, "OK" %> OK</label>
-                  <label><%= i.radio_button :check1, "NG"%> NG </label>
-                  <label><%= i.radio_button :check1, "該当なし" %> 該当なし</label>
-                 </td>
-                </tr>
-                <tr>
-                 <td>2</td>
-                 <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
-                 <td>
-                  <label><%= i.radio_button :check2, "OK" %> OK</label>
-                  <label><%= i.radio_button :check2, "NG" %> NG </label>
-                  <label><%= i.radio_button :check2, "該当なし" %> 該当なし</label>
-                 </td>
-                </tr>
-                <tr>
-                 <td>3</td>
+              <div class="col-md-6 inspects-new-container">
+               <table class="table table-bordered">
+                <thead>
+                 <th></th>
+                 <th>点検項目</th>
+                 <th>判定</th>
+     　　　     　　 </thead>
+                <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>ここに検査項目入る</td>
+                  <td>
+                   <label><%= i.radio_button :check1, "OK" %> OK</label>
+                   <label><%= i.radio_button :check1, "NG"%> NG </label>
+                   <label><%= i.radio_button :check1, "該当なし" %> 該当なし</label>
+                  </td>
+                 </tr>
+                 <tr>
+                  <td>2</td>
                   <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
+                  <td>
+                   <label><%= i.radio_button :check2, "OK" %> OK</label>
+                   <label><%= i.radio_button :check2, "NG" %> NG </label>
+                   <label><%= i.radio_button :check2, "該当なし" %> 該当なし</label>
+                  </td>
+                 </tr>
+                </tbody>
+               </table> 
+              </div>
+              <div class="col-md-6 inspects-new-container">
+                <table class="table table-bordered">
+                  <thead>
+                   <th></th>
+                   <th>点検項目</th>
+                   <th>判定</th>
+       　　　     　　 </thead>
+                 <tbody>
+                  <tr>
+                   <td>3</td>
+                   <td>ここに検査項目入る</td>
                    <td>
                     <label><%= i.radio_button :check3, "OK" %> OK</label>
                     <label><%= i.radio_button :check3, "NG"%> NG </label>
                     <label><%= i.radio_button :check3, "該当なし" %> 該当なし</label>
                    </td>
-                </tr>
-                <tr>
-                  <td>4</td>
+                  </tr>
+                  <tr>
+                   <td>4</td>
                    <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
                    <td>
                     <label><%= i.radio_button :check4, "OK" %> OK</label>
                     <label><%= i.radio_button :check4, "NG" %> NG </label>
                     <label><%= i.radio_button :check4, "該当なし" %> 該当なし</label>
                    </td>
-                </tr>
-               </tbody>
-              </table>
-             </div> 
-             <%= i.label "備考" %><br>
-             <%= i.text_area :description, class: "form-control" %>
-             <%= i.submit '投稿' %>
+                  </tr>
+                 </tbody> 
+                </table>
+              </div> 
+             </div>
+             <div class='col-md-offset-2 col-md-8 '>
+              <%= i.label "備考" %>
+              <%= i.text_area :description, class: "form-control" %>
+              <%= i.check_box :mold_type1,{}, "true", "false" %>
+              <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
+              <%= i.submit '投稿' %>
+             </div>
           </div>   
         <% end %>  
   </div>    

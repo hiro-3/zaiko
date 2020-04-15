@@ -14,4 +14,5 @@ class User < ApplicationRecord
   
  has_many :topics
  has_many :inspects
+ has_many :choices
 end

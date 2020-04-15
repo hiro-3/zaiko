@@ -88,6 +88,8 @@
              <div class='col-md-offset-2 col-md-8 '>
               <%= i.label "備考" %>
               <%= i.text_area :description, class: "form-control" %>
+              <%= i.check_box :mold_type,{}, "true", "false" %>
+              <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
               <%= i.submit '投稿' %>
              </div>
           </div>   
