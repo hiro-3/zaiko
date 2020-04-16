@@ -1,35 +1,56 @@
 <div class="new-wrapper">
   <div class="container">
     <%= form_for @topics do |f| %>
-     <div class="col-md-offset-2 col-md-8 topics-new-container">
+     <div class="col-md-offset-1 col-md-10 topics-new-container">
       <div class="row">
+         <div class="col-md-10">
           <%= f.label "画像" %>
-          <%= f.file_field :images, class:"col" %><br>
+          <%= f.file_field :images, class:"col" %>
+         </div>
+         <div class="col-md-10">
           <%= f.label "発生日" %>
+          <span class="label label-danger"> 必須 </span>
           <%= f.datetime_field :accrual_date, class:"col" %>
           <%= f.label "件名" %>
-          <%= f.text_field :subject, class:"col" %><br>
+          <span class="label label-danger"> 必須 </span>
+          <%= f.text_field :subject, class:"col" %>
+         </div> 
+         <div class="col-md-10">
           <%= f.label "車種" %>
+          <span class="label label-danger"> 必須 </span>
           <%= f.text_field :car_name %>
           <%= f.label "部品名" %>
+          <span class="label label-danger"> 必須 </span>
           <%= f.text_field :name, class:"col" %>
           <%= f.label "工程" %>
-          <%= f.text_field :process, class:"col" %><br>
+          <span class="label label-danger"> 必須 </span>
+          <%= f.text_field :process, class:"col" %>
+         </div>  
+         <div class="col-md-10"> 
           <%= f.label "班名" %>
+          <span class="label label-danger"> 必須 </span>
           <%= f.text_field :shop_name, class:"col"  %>
           <%= f.label "作業者" %>
+          <span class="label label-danger"> 必須 </span>
           <%= f.text_field :worker, class:"col" %>
           <%= f.label "工数" %>
           <%= f.number_field :man_hours,class:"col" %>
+         </div> 
       </div>
-       <div class="row">  
-        <%= f.label "購入依頼部品" %>
-        <%= f.text_area :parts, class: "form-control" %>
-        <%= f.label "状況説明" %>
-        <%= f.text_area :description, class: "form-control",:size => "20x10" %>
+       <div class="row">
+         <div class="col-md-10">  
+          <%= f.label "購入依頼部品" %>
+          <%= f.text_area :parts, class: "form-control" %>
+          <%= f.label "状況説明" %>
+          <span class="label label-danger"> 必須 </span>
+          <%= f.text_area :description, class: "form-control" %>
+         </div> 
        </div>
+       <%= f.check_box :check,{}, "true", "false" %>
+        <span class="label label-danger"> 必須 </span>
+       <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
        <%= f.submit '投稿' %>
       </div> 
     <% end %>
   </div>     
-</div>      
+</div>

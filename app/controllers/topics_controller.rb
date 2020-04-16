@@ -18,7 +18,8 @@ class TopicsController < ApplicationController
     if @topics.save
       redirect_to topics_path
     else
-      render :new
+      flash.now[:danger] = "失敗しました"
+      render :new 
     end
   end
   
@@ -30,6 +31,8 @@ class TopicsController < ApplicationController
   
   private 
    def topic_params
-    params.require(:topic).permit(:user_id, :car_name, :name, :process, :worker, :parts, :images, :man_hours, :subject, :shop_name, :description, :accrual_date )
+    params.require(:topic).permit(:user_id, :car_name, :name, :process, :worker, :parts, :check,
+     :images, :man_hours, :subject, :shop_name, :description, :accrual_date, 
+     )
    end 
 end
