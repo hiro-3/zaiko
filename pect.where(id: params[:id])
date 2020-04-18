@@ -1,0 +1,8 @@
+
+[1mFrom:[0m /home/ec2-user/environment/zaiko/app/controllers/inspects_controller.rb:10 InspectsController#show:
+
+     [1;34m8[0m: [32mdef[0m [1;34mshow[0m
+     [1;34m9[0m:   binding.pry
+ => [1;34m10[0m:   @inspects = [1;34;4mInspect[0m.where([35mid[0m: params[[33m:id[0m])
+    [1;34m11[0m: [32mend[0m 
+

@@ -1,32 +1,17 @@
 class InspectsController < ApplicationController
-  before_action :inspect_new, only: [:new, :new1, :new2]
-  
+
   def new
+    #binding.pry
+    @inspects = Inspect.new
   end
-  
-  def new1
-  end
-  
-  def new2
-  end
-  
   
   def show
     #binding.pry
     @inspects = Inspect.where(id: params[:id])
   end 
   
-  def show1
-    #binding.pry
-    @inspects = Inspect.where(id: params[:id])
-  end 
-  
-  def show2
-    #binding.pry
-    @inspects = Inspect.where(id: params[:id])
-  end 
-  
   def index
+    #binding.pry
     @inspects = Inspect.all
   end 
   
@@ -35,10 +20,12 @@ class InspectsController < ApplicationController
     @inspects = current_user.inspects.new(inspect_params)
    if @inspects.save
      redirect_to inspects_path 
-   else
-     render :new
+   else 
+     #binding.pry
+     render :new 
    end 
   end 
+  
   
   def destroy
     @inspects = Inspect.find(params[:id])
@@ -51,12 +38,8 @@ class InspectsController < ApplicationController
    def inspect_params
      params.require(:inspect).permit(
        :user_id, :car_name, :name, :process, :worker,
-       :parts, :images, :man_hours, :shop_name, :description, :accrual_date,:choices1_id,:mold_type, :mold_type1, :mold_type2,
-       :check1, :check2, :check3, :check4,
+       :parts, :images, :man_hours, :shop_name, :description, :accrual_date,:choices1_id,:mold_type,
+       :check, :judge1, :judge2, :judge3, :judge4,
      )
    end
-   
-   def inspect_new
-     @inspects = Inspect.new
-   end   
 end

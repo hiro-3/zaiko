@@ -1,0 +1,77 @@
+<div class="row">
+ <div class="col-md-offset-1 col-md-10">       
+  <table class="table table-bordered">
+  　 <thead>
+     <tr>
+      <th>ID番号</th>
+      <th>点検日</th>
+      <th>車種</th>
+      <th>部品名</th>
+      <th>工程</th>
+      <th>班名</th>
+      <th>作業者</th>
+      <th>作成者</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td><%= i.id %></td>
+      <td><%= i.accrual_date %></td>
+      <td><%= i.car_name%></td>
+      <td><%= i.name %></td>
+      <td><%= i.process %></td>
+      <td><%= i.shop_name %></td>
+      <td><%= i.worker %></td>
+      <td><%= i.user.user_name %></td>
+ 　 　 </tr>
+  　</tbody>
+  </table>　
+ </div>  　
+ <div class="col-md-12" >
+   <%= i. description %>
+ </div> 
+</div>
+<div class="row">
+  <div class="col-md-6 inspects-new-container">
+   <table class="table table-bordered"> 
+    <thead>
+     <th></th>
+     <th>点検項目</th>
+     <th>判定</th>
+    </thead>
+    <tbody>
+      <tr>
+       <td>1</td>
+       <td>ドロー型</td>
+       <td><%= i.judge1 %></td>
+      </tr>
+      <tr>
+       <td>2</td>
+       <td>~~~~~~~~~~~~~~~</td>
+       <td><%= i.judge2 %></td>
+      </tr>
+    </tbody>
+   </table>
+  </div>
+  <div class="col-md-6 inspects-new-container">
+   <table class="table table-bordered"> 
+    <thead>
+     <th></th>
+     <th>点検項目</th>
+     <th>判定</th>
+    </thead>
+    <tbody>
+      <tr>
+       <td>3</td>
+       <td>~~~~~~~~~~~~~~~</td>
+       <td><%= i.judge3 %></td>
+      </tr>
+      <tr>
+       <td>4</td>
+       <td>~~~~~~~~~~~~~~~</td>
+       <td><%= i.judge4 %></td>
+      </tr>
+    </tbody>
+   </table>
+  </div>
+ </div> 

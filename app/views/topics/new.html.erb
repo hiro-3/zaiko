@@ -1,5 +1,14 @@
 <div class="new-wrapper">
   <div class="container">
+   <% if @topics.errors.any? %>
+  　　<div id="error_explanation" class="alert-danger">
+    　　<ul>
+        <% @topics.errors.full_messages.each do |message| %>
+        　<li><%= message %></li>
+      　<% end %>
+    　　</ul>
+  　　</div>
+　　<% end %>
     <%= form_for @topics do |f| %>
      <div class="col-md-offset-1 col-md-10 topics-new-container">
       <div class="row">
@@ -46,7 +55,7 @@
           <%= f.text_area :description, class: "form-control" %>
          </div> 
        </div>
-       <%= f.check_box :check,{}, "true", "false" %>
+       <%= f.check_box :check %>
         <span class="label label-danger"> 必須 </span>
        <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
        <%= f.submit '投稿' %>

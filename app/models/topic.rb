@@ -9,7 +9,7 @@ class Topic < ApplicationRecord
   validates :description, presence: true
   validates :accrual_date, presence: true
   validates :subject, presence: true
-  validates :check, presence: true
+  validates :check, acceptance: true
   
   belongs_to :user
 end
