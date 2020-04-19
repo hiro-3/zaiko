@@ -1,11 +1,46 @@
 <div class="new-wrapper">
   <div class="container">
-   <% if params[:check] == "draw" %>
-     <%= render partial: 'new', locals:{ inspect: @inspects } %>
-   <% elsif params[:check] == "trim" %>  
-     <%= render partial: 'new1', locals:{ inspect: @inspects } %>
-   <% else params[:check] == "BLK" %>  
-     <%= render partial: 'new2', locals:{ inspect: @inspects } %>
-   <% end %>  
-  </div>    
+   <%= form_for @inspects do |i| %>
+    <%= i.hidden_field :check, value: params[:check] %>
+    <%= hidden_field_tag :check, params[:check] %>
+     　<div class="col-md-offset-2 col-md-8 inspects-new-container">
+        <div class="row">
+         <%= i.label "画像" %>
+         <%= i.file_field :images, class:"col" %><br>
+         <%= i.label "発生日" %>
+         <%= i.datetime_field :accrual_date, class:"col" %><br>
+         <%= i.label "車種" %>
+         <%= i.text_field :car_name %>
+         <%= i.label "部品名" %>
+         <%= i.text_field :name, class:"col" %>
+         <%= i.label "工程" %>
+         <%= i.text_field :process, class:"col" %><br>
+         <%= i.label "班名" %>
+         <%= i.text_field :shop_name, class:"col"  %>
+         <%= i.label "作業者" %>
+         <%= i.text_field :worker, class:"col" %>
+         <%= i.label "工数" %>
+         <%= i.number_field :man_hours,class:"col" %><br>
+         <div class="col-md-7" >
+        　<%= i.label "交換部品" %>
+        　<%= i.text_area :parts, class: "form-control", rows: "3" %> 
+         </div>
+        </div>
+     　</div>   
+     　<% if params[:check] == "draw" %>
+      　<%= render partial: 'new', locals:{ inspect: @inspects }  %>
+    　　 <% elsif params[:check] == "trim" %>  
+      　<%= render partial: 'new1', locals:{ inspect: @inspects }  %>
+     　<% elsif params[:check] == "BLK" %>  
+      　<%= render partial: 'new2', locals:{ inspect: @inspects }  %>
+    　 <% end %>  
+      <div class='col-md-offset-2 col-md-8 '>
+    　　<%= i.label "備考" %>
+    　　<%= i.text_area :description, class: "form-control", rows: "4" %>
+    　　<%= i.check_box :mold_type %>
+   　　　 <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
+   　　　 <%= i.submit '投稿' %>
+  　　　</div>
+   <% end %> 
+  </div> 
 </div>      

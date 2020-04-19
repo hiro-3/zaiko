@@ -22,9 +22,10 @@ class InspectsController < ApplicationController
      redirect_to inspects_path 
    else 
      #binding.pry
-     render :new 
+      render :new
    end 
   end 
+    
   
   
   def destroy
@@ -38,7 +39,7 @@ class InspectsController < ApplicationController
    def inspect_params
      params.require(:inspect).permit(
        :user_id, :car_name, :name, :process, :worker,
-       :parts, :images, :man_hours, :shop_name, :description, :accrual_date,:choices1_id,:mold_type,
+       :parts, :images, :man_hours, :shop_name, :description, :accrual_date,:mold_type,
        :check, :judge1, :judge2, :judge3, :judge4,
      )
    end

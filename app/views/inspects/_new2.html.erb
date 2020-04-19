@@ -1,70 +1,47 @@
-<%= form_for inspect do |i| %>
- <%= i.hidden_field :check, value: params[:check] %>
- <div class="col-md-offset-2 col-md-8 inspects-new-container">
-   <div class="row">
-     <%= i.label "画像" %>
-     <%= i.file_field :images, class:"col" %><br>
-     <%= i.label "発生日" %>
-     <%= i.datetime_field :accrual_date, class:"col" %><br>
-     <%= i.label "車種" %>
-     <%= i.text_field :car_name %>
-     <%= i.label "部品名" %>
-     <%= i.text_field :name, class:"col" %>
-     <%= i.label "工程" %>
-     <%= i.text_field :process, class:"col" %><br>
-     <%= i.label "班名" %>
-     <%= i.text_field :shop_name, class:"col"  %>
-     <%= i.label "作業者" %>
-     <%= i.text_field :worker, class:"col" %>
-     <%= i.label "工数" %>
-     <%= i.number_field :man_hours,class:"col" %><br>
-   　<%= i.label "交換部品" %>
-   　<%= i.text_area :parts, class: "form-control" %> 
-   </div>
- </div>
+<%= form_for inspect do |i| %> 
  <div class="row">
-   <h4>BLK型用</h4>
-    <div class="inspects-table-warp">
-     <div class="col-md-6 inspects-new-container">
+  <h4>BLK型用</h4>
+   <div class="inspects-table-warp">
+    <div class="col-md-6 inspects-new-container">
+     <table class="table table-bordered">
+      <thead>
+       <th></th>
+       <th>点検項目</th>
+       <th>判定</th>
+　　　 </thead>
+     <tbody>
+       <tr>
+        <td>1</td>
+        <td>BLK型</td>
+        <td>
+         <label><%= i.radio_button :judge1, "OK" %> OK</label>
+         <label><%= i.radio_button :judge1, "NG"%> NG </label>
+         <label><%= i.radio_button :judge1, "該当なし" %> 該当なし</label>
+        </td>
+       </tr>
+       <tr>
+        <td>2</td>
+        <td>BLK型</td>
+        <td>
+         <label><%= i.radio_button :judge2, "OK" %> OK</label>
+         <label><%= i.radio_button :judge2, "NG" %> NG </label>
+         <label><%= i.radio_button :judge2, "該当なし" %> 該当なし</label>
+        </td>
+       </tr>
+      </tbody>
+     </table> 
+    </div>
+    <div class="col-md-6 inspects-new-container">
       <table class="table table-bordered">
-       <thead>
-        <th></th>
-        <th>点検項目</th>
-        <th>判定</th>
-　　　     　　 </thead>
-       <tbody>
-        <tr>
-         <td>1</td>
-         <td>ここに検査項目入る</td>
-         <td>
-          <label><%= i.radio_button :judge1, "OK" %> OK</label>
-          <label><%= i.radio_button :judge1, "NG"%> NG </label>
-          <label><%= i.radio_button :judge1, "該当なし" %> 該当なし</label>
-         </td>
-        </tr>
-        <tr>
-         <td>2</td>
-         <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
-         <td>
-          <label><%= i.radio_button :judge2, "OK" %> OK</label>
-          <label><%= i.radio_button :judge2, "NG" %> NG </label>
-          <label><%= i.radio_button :judge2, "該当なし" %> 該当なし</label>
-         </td>
-        </tr>
-       </tbody>
-      </table> 
-     </div>
-     <div class="col-md-6 inspects-new-container">
-       <table class="table table-bordered">
-         <thead>
-          <th></th>
-          <th>点検項目</th>
-          <th>判定</th>
-　　　     　　 </thead>
+        <thead>
+         <th></th>
+         <th>点検項目</th>
+         <th>判定</th>
+　　　   </thead>
         <tbody>
          <tr>
           <td>3</td>
-          <td>ここに検査項目入る</td>
+          <td>BLK型</td>
           <td>
            <label><%= i.radio_button :judge3, "OK" %> OK</label>
            <label><%= i.radio_button :judge3, "NG"%> NG </label>
@@ -73,7 +50,7 @@
          </tr>
          <tr>
           <td>4</td>
-          <td>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
+          <td>BLK型</td>
           <td>
            <label><%= i.radio_button :judge4, "OK" %> OK</label>
            <label><%= i.radio_button :judge4, "NG" %> NG </label>
@@ -81,15 +58,7 @@
           </td>
          </tr>
         </tbody> 
-       </table>
-     </div> 
-    </div>
-    <div class='col-md-offset-2 col-md-8 '>
-     <%= i.label "備考" %>
-     <%= i.text_area :description, class: "form-control" %>
-     <%= i.check_box :mold_type %>
-     <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
-     <%= i.submit '投稿' %>
-    </div>
- </div>   
-<% end %> 
+      </table>
+    </div> 
+ </div>
+<% end %>   
