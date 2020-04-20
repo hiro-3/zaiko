@@ -52,7 +52,11 @@
             </tr>
             <tr>
              <div class="img">
-              <td width="150" align="center"><%= image_tag t.images.url, class:"topic_img" %></td>
+              <% if t.images.present? %>
+               <td width="150" align="center"><%= image_tag t.images.url, class:"topic_img" %></td>
+              <% else %>
+               <td width="150" align="center"><h3>画像はありません</h3></td>
+              <% end %> 
              </div>
              <td class="topic_descrption"><%= t. description %></td>
             </tr>

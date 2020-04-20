@@ -1,5 +1,14 @@
 <div class="new-wrapper">
   <div class="container">
+　　<% if @inspects.errors.any? %>
+  　　<div id="error_explanation" class="alert-danger">
+    　　<ul>
+        <% @inspects.errors.full_messages.each do |message| %>
+        　<li><%= message %></li>
+      　<% end %>
+    　　</ul>
+  　　</div>
+　　<% end %>
    <%= form_for @inspects do |i| %>
     <%= i.hidden_field :check, value: params[:check] %>
     <%= hidden_field_tag :check, params[:check] %>
@@ -8,16 +17,22 @@
          <%= i.label "画像" %>
          <%= i.file_field :images, class:"col" %><br>
          <%= i.label "発生日" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.datetime_field :accrual_date, class:"col" %><br>
          <%= i.label "車種" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.text_field :car_name %>
          <%= i.label "部品名" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.text_field :name, class:"col" %>
          <%= i.label "工程" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.text_field :process, class:"col" %><br>
          <%= i.label "班名" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.text_field :shop_name, class:"col"  %>
          <%= i.label "作業者" %>
+         <span class="label label-danger"> 必須 </span>
          <%= i.text_field :worker, class:"col" %>
          <%= i.label "工数" %>
          <%= i.number_field :man_hours,class:"col" %><br>
@@ -37,6 +52,7 @@
       <div class='col-md-offset-2 col-md-8 '>
     　　<%= i.label "備考" %>
     　　<%= i.text_area :description, class: "form-control", rows: "4" %>
+    　　<span class="label label-danger"> 必須 </span>
     　　<%= i.check_box :mold_type %>
    　　　 <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
    　　　 <%= i.submit '投稿' %>

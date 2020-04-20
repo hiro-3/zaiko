@@ -1,64 +1,64 @@
-<%= form_for inspect do |i| %> 
+<%= form_for inspect do |i| %>
  <div class="row">
-  <h4>BLK型用</h4>
-   <div class="inspects-table-warp">
-    <div class="col-md-6 inspects-new-container">
-     <table class="table table-bordered">
-      <thead>
-       <th></th>
-       <th>点検項目</th>
-       <th>判定</th>
-　　　 </thead>
-     <tbody>
-       <tr>
-        <td>1</td>
-        <td>BLK型</td>
-        <td>
-         <label><%= i.radio_button :judge1, "OK" %> OK</label>
-         <label><%= i.radio_button :judge1, "NG"%> NG </label>
-         <label><%= i.radio_button :judge1, "該当なし" %> 該当なし</label>
-        </td>
-       </tr>
-       <tr>
-        <td>2</td>
-        <td>BLK型</td>
-        <td>
-         <label><%= i.radio_button :judge2, "OK" %> OK</label>
-         <label><%= i.radio_button :judge2, "NG" %> NG </label>
-         <label><%= i.radio_button :judge2, "該当なし" %> 該当なし</label>
-        </td>
-       </tr>
-      </tbody>
-     </table> 
-    </div>
-    <div class="col-md-6 inspects-new-container">
+   <h4>BLK型用</h4>
+    <div class="inspects-table-warp">
+     <div class="col-md-6 inspects-new-container">
       <table class="table table-bordered">
-        <thead>
-         <th></th>
-         <th>点検項目</th>
-         <th>判定</th>
-　　　   </thead>
-        <tbody>
-         <tr>
-          <td>3</td>
-          <td>BLK型</td>
-          <td>
-           <label><%= i.radio_button :judge3, "OK" %> OK</label>
-           <label><%= i.radio_button :judge3, "NG"%> NG </label>
-           <label><%= i.radio_button :judge3, "該当なし" %> 該当なし</label>
-          </td>
-         </tr>
-         <tr>
-          <td>4</td>
-          <td>BLK型</td>
-          <td>
-           <label><%= i.radio_button :judge4, "OK" %> OK</label>
-           <label><%= i.radio_button :judge4, "NG" %> NG </label>
-           <label><%= i.radio_button :judge4, "該当なし" %> 該当なし</label>
-          </td>
-         </tr>
-        </tbody> 
-      </table>
-    </div> 
+       <thead>
+        <th></th>
+        <th>点検項目</th>
+        <th><span class="label label-danger"> 必須 </span>　判定</th>
+ 　　　 </thead>
+      <tbody>
+        <tr>
+         <td>1</td>
+         <td>BLK型</td>
+         <td>
+          <label><%= i.radio_button :judge1, "OK" %> OK</label>
+          <label><%= i.radio_button :judge1, "NG"%> NG </label>
+          <label><%= i.radio_button :judge1, "該当なし" %> 該当なし</label>
+         </td>
+        </tr>
+        <tr>
+         <td>2</td>
+         <td>BLK型</td>
+         <td>
+          <label><%= i.radio_button :judge2, "OK" %> OK</label>
+          <label><%= i.radio_button :judge2, "NG" %> NG </label>
+          <label><%= i.radio_button :judge2, "該当なし" %> 該当なし</label>
+         </td>
+        </tr>
+       </tbody>
+      </table> 
+     </div>
+     <div class="col-md-6 inspects-new-container">
+       <table class="table table-bordered">
+         <thead>
+          <th></th>
+          <th>点検項目</th>
+          <th><span class="label label-danger"> 必須 </span>　判定</th>
+ 　　　   </thead>
+         <tbody>
+          <tr>
+           <td>3</td>
+           <td>BLK型</td>
+           <td>
+            <label><%= i.radio_button :judge3, "OK" %> OK</label>
+            <label><%= i.radio_button :judge3, "NG"%> NG </label>
+            <label><%= i.radio_button :judge3, "該当なし" %> 該当なし</label>
+           </td>
+          </tr>
+          <tr>
+           <td>4</td>
+           <td>BLK型</td>
+           <td>
+            <label><%= i.radio_button :judge4, "OK" %> OK</label>
+            <label><%= i.radio_button :judge4, "NG" %> NG </label>
+            <label><%= i.radio_button :judge4, "該当なし" %> 該当なし</label>
+           </td>
+          </tr>
+         </tbody> 
+       </table>
+     </div> 
  </div>
 <% end %>   
