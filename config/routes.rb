@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :inspects
   resources :inspect1s
   resources :choices
+  resources :account_activations, only: [:edit]
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
