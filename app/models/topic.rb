@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
+  
   mount_uploader :images,ImageUploader
   
   validates :car_name, presence: true

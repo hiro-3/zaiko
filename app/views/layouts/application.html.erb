@@ -17,18 +17,18 @@
       <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
         <div class="container">
          <h3 class="logo">（仮）管理システム</h3>
-          <%# if logged_in? %>
+          <% if logged_in? %>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "破損報告書作成", new_topic_path %></li>
               <li><%= link_to "破損報告書一覧", topics_path  %></li>
               <li><%= link_to "金型点検", new_choice_path  %></li>
               <li><%= link_to "金型点検一覧", inspects_path  %></li>
-              <%# if current_user.admin?  %>  
+              <% if current_user.admin?  %>  
                 <li><%= link_to "会員登録", new_user_path   %></li>
-              <%# end %>  
+              <% end %>  
               <li><%= link_to"ログアウト", logout_path, method: :delete  %></li>
             </ul> 
-          <%# end %>  
+          <% end %>  
         </div>  
       </nav>
     <%= yield %>

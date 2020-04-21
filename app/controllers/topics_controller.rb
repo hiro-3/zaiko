@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
-  end
+    if params[:car_name_key]
+      @topics = Topic.where('car_name LIKE ?', "%#{params[:car_name_key]}%")
+    elsif
+     @topics = Topic.all
+    end
+  end 
   
   def show
     #binding.pry
@@ -22,6 +26,7 @@ class TopicsController < ApplicationController
       render :new 
     end
   end
+  
   
   def destroy
     @topics = Topic.find(params[:id])

@@ -2,8 +2,15 @@
  <section class="container">
     <h1 class= "text-name">報告書一覧</h1>
      <hr/>
+     <div class="pie_chart">
+      <%= pie_chart Topic.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
+     </div> 
+     <%= form_tag('/topics', method: 'get') do %>
+       <%= label_tag(:car_name_key, '検索　車種') %>
+       <%= text_field_tag(:car_name_key) %>
+       <%= submit_tag('検索') %> <%= link_to '一覧表示', topics_path %>
+     <% end %>
       <table class="table table-bordered">
-       <%= pie_chart Topic.group(:car_name).count %>
        <thead>
          <tr>
           <th></th>
