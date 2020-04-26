@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   delete 'topics/destroy'
   delete 'inspects/destroy'
-  root 'sessions#new'
+  root 'pages#index'
 
   resources :users
   resources :topics
