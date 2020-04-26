@@ -38,7 +38,7 @@ class InspectsController < ApplicationController
   private
    def inspect_params
      params.require(:inspect).permit(
-       :user_id, :car_name, :name, :process, :worker,
+       :user_id, :car_name, :car_type, :process, :worker,
        :parts, :images, :man_hours, :shop_name, :description, :accrual_date,:mold_type,
        :check, :judge1, :judge2, :judge3, :judge4,
      )

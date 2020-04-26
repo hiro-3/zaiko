@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
     create_table :topics do |t|
       t.integer :user_id
       t.string :car_name
-      t.string :name
+      t.string :car_type
       t.string :process
       t.string :worker
       t.string :parts

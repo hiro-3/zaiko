@@ -3,7 +3,12 @@
     <h1 class= "text-name">点検一覧</h1>
      <hr/>
       <table class="table table-bordered">
-       <%= pie_chart Inspect.group(:car_name).count %>
+       <%= pie_chart Inspect.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
+       <%= form_tag('/inspects', method: 'get') do %>
+        <%= label_tag(:car_name_key, '検索　車種') %>
+        <%= text_field_tag(:car_name_key) %>
+        <%= submit_tag('検索') %> <%= link_to '一覧表示', inspects_path %>
+       <% end %> 
        <thead>
          <tr>
           <th></th>
@@ -25,10 +30,10 @@
           <td><%= i.id %></td>
           <td><%= i.accrual_date %></td>
           <td><%= i.car_name %></td>
-          <td><%= i.name %></td>
+          <td><%= i.car_type %></td>
           <td><%= i.process %></td>
           <td><%= i.shop_name %></td>
-          <td><%= i.user.user_name %></td>
+          <td><%= i.user.name %></td>
           <td><%= link_to "詳細", inspect_path(id: i.id) %></td>
           <td><%= link_to "削除",  inspects_destroy_path(id: i.id), method: :delete %></td>
         </tr>

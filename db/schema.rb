@@ -10,19 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_40_00_040311) do
-
-  create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "check"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2024_40_00_040313) do
 
   create_table "inspects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "car_name"
-    t.string "name"
+    t.string "car_type"
     t.string "process"
     t.string "worker"
     t.string "parts"
@@ -45,7 +38,7 @@ ActiveRecord::Schema.define(version: 2024_40_00_040311) do
   create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "car_name"
-    t.string "name"
+    t.string "car_type"
     t.string "process"
     t.string "worker"
     t.string "parts"
@@ -61,13 +54,17 @@ ActiveRecord::Schema.define(version: 2024_40_00_040311) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "user_name"
+    t.string "name"
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.string "remember_digest"
   end
 
 end

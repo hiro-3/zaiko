@@ -21,11 +21,11 @@
           <td><%= i.id %></td>
           <td><%= i.accrual_date %></td>
           <td><%= i.car_name%></td>
-          <td><%= i.name %></td>
+          <td><%= i.car_type %></td>
           <td><%= i.process %></td>
           <td><%= i.shop_name %></td>
           <td><%= i.worker %></td>
-          <td><%= i.user.user_name %></td>
+          <td><%= i.user.name %></td>
      　 　 </tr>
       　</tbody>
       </table>　
@@ -38,7 +38,7 @@
        <tr>
         <% if i.parts.present? %>
          <td class="text_descrption"><%= i.parts %></td>
-        <% elsif %> 
+        <% end %> 
        </tr>　
     　</table>   
      </div>　 

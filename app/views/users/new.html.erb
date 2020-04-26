@@ -6,8 +6,8 @@
         <% @users = User.new unless @users %>
          <%= form_for @users do |f| %>
             <div class="form-group">
-              <%= f.label :user_name, class: 'text-white' %>
-              <%= f.text_field :user_name, class: 'form-control' %>
+              <%= f.label :name, class: 'text-white' %>
+              <%= f.text_field :name, class: 'form-control' %>
             </div>
             <div class="form-group">
               <%= f.label :email, class: 'text-white' %>
