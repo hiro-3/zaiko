@@ -9,4 +9,6 @@ User.create!(name:  "Sample User",
              email: "aaa@bbb.com",
              password:              "1234567890p",
              password_confirmation: "1234567890p",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now )
