@@ -3,7 +3,7 @@
     <h1 class= "text-name">報告書一覧</h1>
      <hr/>
      <div class="pie_chart">
-      <%= pie_chart Topic.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
+      <%#= pie_chart Topic.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
      </div> 
      <%= form_tag('/topics', method: 'get') do %>
        <%= label_tag(:car_name_key, '検索　車種') %>

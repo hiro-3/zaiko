@@ -3,7 +3,7 @@
     <h1 class= "text-name">点検一覧</h1>
      <hr/>
       <table class="table table-bordered">
-       <%= pie_chart Inspect.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
+       <%#= pie_chart Inspect.group(:car_name).count, display: "block", height: "200px", width: "520px" %>
        <%= form_tag('/inspects', method: 'get') do %>
         <%= label_tag(:car_name_key, '検索　車種') %>
         <%= text_field_tag(:car_name_key) %>
