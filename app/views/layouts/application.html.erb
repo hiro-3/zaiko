@@ -15,28 +15,30 @@
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
-      <nav class="navbar　navbar-expand-md  navbar-light bg-light">
-        <div class="container">
-         <h3 class="logo">（仮）管理システム</h3>
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi"
+      <nav class="navbar-expand-md  navbar-light bg-light ">
+         <div class="navbar">
+           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi"
          　　　　　　　　aria-expanded="false" aria-label="Toggle navigation">
           　<span class="navbar-toggler-icon"></span>
            </button>
+           <h3>（仮）管理システム</h3>
+         </div>  
           <div class="collapse navbar-collapse" id="bs-navi">
            <% if logged_in? %>
             <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "金型点検表作成", new_choice_path  %></li>
+              <li><%= link_to "金型点検一覧", inspects_path  %></li>
               <li><%= link_to "破損報告書作成", new_topic_path %></li>
               <li><%= link_to "破損報告書一覧", topics_path  %></li>
-              <li><%= link_to "金型点検", new_choice_path  %></li>
-              <li><%= link_to "金型点検一覧", inspects_path  %></li>
               <% if current_user.admin?  %>  
                 <li><%= link_to "会員登録", new_user_path   %></li>
-              <% end %>  
-              <li><%= link_to"ログアウト", logout_path, method: :delete  %></li>
+              <% end %>
+              <% if logged_in? %> 
+               <li><%= link_to"ログアウト", logout_path, method: :delete  %></li>
+              <% end %>
             </ul> 
            <% end %>
           </div> 
-        </div>  
       </nav>
     <%= yield %>
     <script>

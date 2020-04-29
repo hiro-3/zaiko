@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2024_40_00_040312) do
 
   create_table "topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
+    t.string "time"
     t.string "car_name"
     t.string "car_type"
     t.string "process"
@@ -55,7 +56,7 @@ ActiveRecord::Schema.define(version: 2024_40_00_040312) do
     t.string "man_hours"
     t.string "check"
     t.text "description"
-    t.datetime "accrual_date"
+    t.date "accrual_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

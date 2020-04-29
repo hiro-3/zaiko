@@ -2,6 +2,7 @@ class Topic < ApplicationRecord
   
   mount_uploader :images,ImageUploader
   
+  validates :time, presence: true
   validates :car_name, presence: true
   validates :car_type, presence: true
   validates :process, presence: true

@@ -13,13 +13,13 @@
      <div class="col-md-offset-1 col-md-10 topics-new-container">
       <div class="row">
          <div class="col-md-10">
-          <%= f.label "画像" %>
-          <%= f.file_field :images, class:"col" %>
-         </div>
-         <div class="col-md-10">
           <%= f.label "発生日" %>
           <span class="label label-danger"> 必須 </span>
-          <%= f.datetime_field :accrual_date, class:"col" %>
+          <%= raw sprintf(
+             f.date_select(:accrual_date, use_month_numbers: true, date_separator: '%s'),'年','月')+'日' %>
+          <%= f.label "時間" %>
+          <span class="label label-danger"> 必須 </span>
+          <%= f.time_field :time %><br>
           <%= f.label "件名" %>
           <span class="label label-danger"> 必須 </span>
           <%= f.text_field :subject, class:"col" %>
@@ -52,13 +52,15 @@
           <%= f.text_area :parts, class: "form-control" %>
           <%= f.label "状況説明" %>
           <span class="label label-danger"> 必須 </span>
-            <%= f.text_area :description, class: "form-control", rows: "7" %>
+            <%= f.text_area :description, class: "form-control", rows: "7" %><br>
+            <%= f.label "画像", class:"col-sm-1 col-form-label" %>
+            <%= f.file_field :images %>
          </div> 
        </div>
+       <span class="label label-danger">必須</span>
        <%= f.check_box :check %>
-        <span class="label label-danger"> 必須 </span>
-       <%= "この内容で良ければチェックして登録ボタンをクリックしてください" %><br>
-       <%= f.submit '登録' %>
+    　 <%= "この内容で良ければチェックして登録ボタンをクリックしてください" %><br>
+       <%= f.submit "登録" %>
       </div> 
     <% end %>
   </div>     

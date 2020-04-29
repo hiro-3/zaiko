@@ -49,20 +49,14 @@
       　<%= render partial: 'new2', locals:{ inspect: @inspects }  %>
     　 <% end %>  
       <div class=' col-md-12 '>
-       <table class="table table-bordered">
-            <tr>
-             <th>画像</th>
-             <th>備考</th>
-            </tr>
-            <tr>
-              <td width="50"><%= i.file_field :images %> 
-    　　        <td width="150" align="center"><%= i.text_area :description, class: "form-control", rows: "4" %>
-            </tr>
-        </table>    
-    　　        <span class="label label-danger"> 必須 </span>
-    　　<%= i.check_box :mold_type %>
-   　　　 <%= "この内容で良ければチェックし登録ボタンをクリックしてください" %><br>
-   　　　 <%= i.submit '登録' %>
+       <%= i.label "備考"%>   
+       <%= i.text_area :description, class: "form-control", rows: "4" %><br>
+       <%= i.label "画像", class:"col-sm-1 col-form-label" %>
+       <%= i.file_field :images %>
+       <span class="label label-danger">必須</span>
+    　 <%= i.check_box :mold_type %>
+   　　 <%= "この内容で良ければチェックし登録ボタンをクリックしてください" %><br>
+   　　 <%= i.submit '登録' %>
   　　　</div>
    <% end %> 
   </div> 

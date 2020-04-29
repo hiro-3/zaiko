@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
   
   private 
    def topic_params
-    params.require(:topic).permit(:user_id, :car_name, :car_type, :process, :worker, :parts, :check,
+    params.require(:topic).permit(:user_id, :time, :car_name, :car_type, :process, :worker, :parts, :check,
      :images, :man_hours, :subject, :shop_name, :description, :accrual_date, 
      )
    end 

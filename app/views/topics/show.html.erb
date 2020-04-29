@@ -20,7 +20,9 @@
            <tbody>
             <tr>
         　    <td><%= t.id %></td>
-         　   <td><%= t.accrual_date %></td>
+         　   <td><%= t.accrual_date %>
+         　       <%=t.time %>
+         　   </td>
          　   <td><%= t.car_name %></td>
          　   <td><%= t.car_type %></td>
          　   <td><%= t.process %></td>
@@ -58,7 +60,7 @@
             <tr>
              <div class="img">
               <% if t.images.present? %>
-               <td width="150" align="center"><%= image_tag t.images.url, class:"topic_img" %></td>
+               <td width="150" align="center"><%= image_tag t.images.url, size: '450x450' %></td>
               <% else %>
                <td width="150" align="center"><h6>画像はありません</h6></td>
               <% end %> 

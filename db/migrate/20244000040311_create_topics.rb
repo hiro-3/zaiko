@@ -2,6 +2,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
   def change
     create_table :topics do |t|
       t.integer :user_id
+      t.string :time
       t.string :car_name
       t.string :car_type
       t.string :process
@@ -13,7 +14,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
       t.string :man_hours
       t.string :check
       t.text :description
-      t.datetime :accrual_date
+      t.date :accrual_date
       
       t.timestamps
     end

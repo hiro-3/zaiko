@@ -37,7 +37,7 @@
        </tr>
        <tr>
         <% if i.parts.present? %>
-         <td class="text_descrption"><%= i.parts %></td>
+         <td class="text_descrption"><%=safe_join(i.parts.split("\n"),tag(:br)) %></td>
         <% end %> 
        </tr>　
     　</table>   
@@ -49,29 +49,31 @@
      <%= render partial:'show1', locals:{ i: i} %>
     <% else i.check == "BLK" %>
      <%= render partial:'show2', locals:{ i: i} %>
-    <% end %> 
-    <div class="col-md-12">
-     <table class="table table-bordered">
-       <tr>
-        <th>画像</th>
-        <th>状況説明</th>
-       </tr>
-       <tr>
-        <div class="img">
-         <% if i.images.present? %>
-          <td width="150" align="center"><%= image_tag i.images.url, class:"topic_img" %></td>
-         <% elsif %> 
-          <td width="150" align="center"><h6>画像はありません</h6></td>
-         <% end %> 
-        </div>
-        <% if i.description.present? %>
-         <td class="text_descrption"><%= i. description %></td>
-        <% elsif %> 
-         <td width="150" align="center"><h6>備考はありません</h6></td>
-        <% end %>
-       </tr>
-     </table>
-    </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-12">
+       <table class="table table-bordered">
+         <tr>
+          <th>画像</th>
+          <th>状況説明</th>
+         </tr>
+         <tr>
+          <div class="img">
+           <% if i.images.present? %>
+            <td width="150" align="center"><%= image_tag i.images.url, size: '450x450'%></td>
+           <% elsif %> 
+            <td width="150" align="center"><h6>画像はありません</h6></td>
+           <% end %> 
+          </div>
+          <% if i.description.present? %>
+           <td class="text_descrption"><%=safe_join(i.description.split("\n"),tag(:br)) %></td>
+          <% elsif %> 
+           <td width="150" align="center"><h6>備考はありません</h6></td>
+          <% end %>
+         </tr>
+       </table>
+      </div>
+    </div>  
   <% end %>  
  </div>     
 </div>      
