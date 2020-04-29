@@ -14,11 +14,10 @@
     <%= hidden_field_tag :check, params[:check] %>
      　<div class="col-md-offset-2 col-md-8 inspects-new-container">
         <div class="row">
-         <%= i.label "画像" %>
-         <%= i.file_field :images, class:"col" %><br>
-         <%= i.label "発生日" %>
+         <%= i.label "点検日" %>
          <span class="label label-danger"> 必須 </span>
-         <%= i.datetime_field :accrual_date, class:"col" %><br>
+         <%= raw sprintf(
+             i.date_select(:accrual_date, use_month_numbers: true, date_separator: '%s'),'年','月')+'日' %><br>
          <%= i.label "車種" %>
          <span class="label label-danger"> 必須 </span>
          <%= i.text_field :car_name %>
@@ -49,13 +48,21 @@
      　<% elsif params[:check] == "BLK" %>  
       　<%= render partial: 'new2', locals:{ inspect: @inspects }  %>
     　 <% end %>  
-      <div class='col-md-offset-2 col-md-8 '>
-    　　<%= i.label "備考" %>
-    　　<%= i.text_area :description, class: "form-control", rows: "4" %>
-    　　<span class="label label-danger"> 必須 </span>
+      <div class=' col-md-12 '>
+       <table class="table table-bordered">
+            <tr>
+             <th>画像</th>
+             <th>備考</th>
+            </tr>
+            <tr>
+              <td width="50"><%= i.file_field :images %> 
+    　　        <td width="150" align="center"><%= i.text_area :description, class: "form-control", rows: "4" %>
+            </tr>
+        </table>    
+    　　        <span class="label label-danger"> 必須 </span>
     　　<%= i.check_box :mold_type %>
-   　　　 <%= "この内容で良ければチェックして保存ボタンをクリックしてください" %><br>
-   　　　 <%= i.submit '投稿' %>
+   　　　 <%= "この内容で良ければチェックし登録ボタンをクリックしてください" %><br>
+   　　　 <%= i.submit '登録' %>
   　　　</div>
    <% end %> 
   </div> 

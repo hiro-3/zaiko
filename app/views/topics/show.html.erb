@@ -38,7 +38,12 @@
               <th>交換部品</th>
              </tr>
              <tr>
+              <% if t.parts.present? %>
                <td class="text_descrption"><%= t.parts %></td>
+              <% else %>
+               <td align="center"><h6>交換部品はありません</h6></td>
+              <% end %>  
+               
              </tr>　
           　</table>   
            </div>　 
@@ -58,7 +63,7 @@
                <td width="150" align="center"><h6>画像はありません</h6></td>
               <% end %> 
              </div>
-             <td class="text_descrption"><%= t. description %></td>
+             <td class="text_descrption"><%=safe_join(t.description.split("\n"),tag(:br)) %></td>
             </tr>
           </table>
          </div> 

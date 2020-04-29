@@ -19,7 +19,7 @@ class CreateInspects < ActiveRecord::Migration[5.2]
       t.string :mold_type
       
       t.text :description
-      t.datetime :accrual_date
+      t.date :accrual_date
 
       t.timestamps
     end

@@ -2,6 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaiko</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,10 +15,15 @@
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
-      <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <nav class="navbar　navbar-expand-md  navbar-light bg-light">
         <div class="container">
          <h3 class="logo">（仮）管理システム</h3>
-          <% if logged_in? %>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi"
+         　　　　　　　　aria-expanded="false" aria-label="Toggle navigation">
+          　<span class="navbar-toggler-icon"></span>
+           </button>
+          <div class="collapse navbar-collapse" id="bs-navi">
+           <% if logged_in? %>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "破損報告書作成", new_topic_path %></li>
               <li><%= link_to "破損報告書一覧", topics_path  %></li>
@@ -28,7 +34,8 @@
               <% end %>  
               <li><%= link_to"ログアウト", logout_path, method: :delete  %></li>
             </ul> 
-          <% end %>  
+           <% end %>
+          </div> 
         </div>  
       </nav>
     <%= yield %>
