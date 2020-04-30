@@ -24,21 +24,21 @@
            <h3>（仮）管理システム</h3>
          </div>  
           <div class="collapse navbar-collapse" id="bs-navi">
-           <% if logged_in? %>
+           <%# if logged_in? %>
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Home", peges_path, style:"color:white;" %></li>  
               <li><%= link_to "金型点検表作成", new_choice_path, style:"color:white;" %></li>
               <li><%= link_to "金型点検一覧", inspects_path, style:"color:white;"  %></li>
               <li><%= link_to "破損報告書作成", new_topic_path, style:"color:white;" %></li>
               <li><%= link_to "破損報告書一覧", topics_path, style:"color:white;"  %></li>
-              <% if current_user.admin?  %>  
+              <%# if current_user.admin?  %>  
                 <li><%= link_to "会員登録", new_user_path, style:"color:white;"   %></li>
-              <% end %>
-              <% if logged_in? %> 
+              <%# end %>
+              <%# if logged_in? %> 
                <li><%= link_to"ログアウト", logout_path, method: :delete, style:"color:white;"  %></li>
-              <% end %>
+              <%# end %>
             </ul> 
-           <% end %>
+           <%# end %>
           </div> 
       </nav>
     <%= yield %>
