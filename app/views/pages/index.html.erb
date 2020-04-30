@@ -1,9 +1,19 @@
 <div class="new-wrapper">
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-4 users-new-container">
-        <h2>ログインしてください</h2>
-        <%= link_to "ログイン", login_path, class: 'btn btn-primary btn-lg' %>
+      <div class="col-md-offset-5 col-md-2 ">
+       <div class="form-group">  
+        <%= link_to "金型点検表作成", new_choice_path, class: 'btn btn-primary btn-lg' %>
+       </div> 
+       <div class="form-group">  
+        <%= link_to "金型点検一覧", inspects_path, class: 'btn btn-primary btn-lg' %>
+       </div> 
+       <div class="form-group">  
+        <%= link_to "破損報告書作成", new_topic_path, class: 'btn btn-primary btn-lg' %>
+       </div> 
+       <div class="form-group">  
+        <%= link_to "破損報告書一覧", topics_path, class: 'btn btn-primary btn-lg' %>
+       </div>  
       </div>
     </div> 
   </div> 

@@ -30,18 +30,6 @@
       　</tbody>
       </table>　
      </div>
-     <div class="col-md-offset-4 col-md-4">
-      <table class="table table-bordered">
-       <tr>
-        <th>交換部品</th>
-       </tr>
-       <tr>
-        <% if i.parts.present? %>
-         <td class="text_descrption"><%=safe_join(i.parts.split("\n"),tag(:br)) %></td>
-        <% end %> 
-       </tr>　
-    　</table>   
-     </div>　 
     </div>
     <% if i.check == "draw" %>
      <%= render partial:'show', locals:{ i: i} %>
@@ -72,6 +60,20 @@
           <% end %>
          </tr>
        </table>
+       <div class="col-md-offset-4 col-md-4">
+        <table class="table table-bordered">
+         <tr>
+          <th>交換部品</th>
+         </tr>
+         <tr>
+          <% if i.parts.present? %>
+            <td class="text_descrption"><%=safe_join(i.parts.split("\n"),tag(:br)) %></td>
+          <% elsif %>  
+          　<td width="150" align="center"><h6>交換部品はありません</h6></td>  
+          <% end %> 
+         </tr>　
+    　   </table>   
+       </div>　 
       </div>
     </div>  
   <% end %>  

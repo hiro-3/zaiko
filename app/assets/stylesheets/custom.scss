@@ -7,10 +7,17 @@
   margin: 30px;
 }
 
+h3{
+  color: #ffffff;
+}
+
+.navbar-collapse{
+  background: #708090;
+}
 
 
 .new-wrapper{
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .table-bordered{
@@ -23,7 +30,7 @@
   max-width: 100%;
 }
 .alert {
-  padding-top: 50px;
+  padding-top: 30px;
   position: fixed;
   width: 100%;
   z-index: 10000;

@@ -16,7 +16,7 @@
           <%= f.label "発生日" %>
           <span class="label label-danger"> 必須 </span>
           <%= raw sprintf(
-             f.date_select(:accrual_date, use_month_numbers: true, date_separator: '%s'),'年','月')+'日' %>
+             f.date_select(:accrual_date, use_month_numbers: true, date_separator: '%s'),'年','月')+'日' %><br>
           <%= f.label "時間" %>
           <span class="label label-danger"> 必須 </span>
           <%= f.time_field :time %><br>
@@ -55,12 +55,12 @@
             <%= f.text_area :description, class: "form-control", rows: "7" %><br>
             <%= f.label "画像", class:"col-sm-1 col-form-label" %>
             <%= f.file_field :images %>
-         </div> 
+          <span class="label label-danger">必須</span>
+          <%= f.check_box :check %>
+    　     <%= "この内容で良ければチェックして登録ボタンをクリックしてください" %><br>
+          <%= f.submit "登録" %>
+         </div>
        </div>
-       <span class="label label-danger">必須</span>
-       <%= f.check_box :check %>
-    　 <%= "この内容で良ければチェックして登録ボタンをクリックしてください" %><br>
-       <%= f.submit "登録" %>
       </div> 
     <% end %>
   </div>     

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   delete 'topics/destroy'
   delete 'inspects/destroy'
-  root 'pages#index'
+  get '/peges', to: 'pages#index'
+  root 'sessions#new'
 
   resources :users
   resources :topics

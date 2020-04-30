@@ -13,6 +13,13 @@
     <%= i.hidden_field :check, value: params[:check] %>
     <%= hidden_field_tag :check, params[:check] %>
      　<div class="col-md-offset-2 col-md-8 inspects-new-container">
+       <% if params[:check] == "draw" %>
+        <h4>ドロー型用</h4>
+       <% elsif params[:check] == "trim"%>  
+        <h4>トリム型用</h4>
+       <% elsif params[:check] == "BLK" %> 
+        <h4>BLK型用</h4>
+       <% end %> 
         <div class="row">
          <%= i.label "点検日" %>
          <span class="label label-danger"> 必須 </span>
